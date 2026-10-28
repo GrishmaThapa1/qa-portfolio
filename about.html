@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about my background, education, and journey toward software quality assurance.">
+
+    <title>About Me | Software QA Tester</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #102e63;
+            --blue: #2477f3;
+            --blue-dark: #155fc5;
+            --text: #536987;
+            --muted: #7185a2;
+            --line: #dce9fa;
+            --green: #159b78;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #fff;
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* NAVBAR */
+
+        .site-header {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid #e5edf8;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            width: min(1200px, 92%);
+            min-height: 76px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 800;
+            white-space: nowrap;
+            color: var(--navy);
+        }
+
+        .logo-highlight {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #536987;
+            font-size: 13px;
+            font-weight: 650;
+            padding: 10px 0;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--blue);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--blue);
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: auto;
+        }
+
+        .eyebrow,
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 13px;
+            border-radius: 30px;
+            color: var(--blue);
+            background: #e5f0ff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+
+        .about-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 68px 0 62px;
+            background: linear-gradient(
+                120deg,
+                #edf5ff 0%,
+                #ffffff 56%,
+                #edf6ff 100%
+            );
+        }
+
+        .about-hero::before,
+        .about-hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(190, 218, 255, 0.22);
+            pointer-events: none;
+        }
+
+        .about-hero::before {
+            width: 360px;
+            height: 360px;
+            top: -230px;
+            left: -120px;
+        }
+
+        .about-hero::after {
+            width: 420px;
+            height: 420px;
+            bottom: -320px;
+            right: -100px;
+        }
+
+        .hero-layout {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .hero-copy h1 {
+            color: var(--navy);
+            font-size: clamp(35px, 4vw, 50px);
+            line-height: 1.16;
+            letter-spacing: -1.3px;
+            margin: 20px 0 18px;
+        }
+
+        .hero-copy h1 span {
+            color: var(--blue);
+        }
+
+        .hero-copy > p {
+            max-width: 610px;
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 23px;
+        }
+
+        .hero-note {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 16px 8px 9px;
+            background: #fff;
+            border: 1px solid #d8e8ff;
+            border-radius: 30px;
+            box-shadow: 0 6px 16px rgba(36, 75, 123, 0.07);
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero-chip i {
+            width: 24px;
+            height: 24px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #dcf6ed;
+            color: var(--green);
+            font-size: 12px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual .profile-card {
+            width: min(100%, 280px);
+        }
+
+        .profile-card {
+            padding: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            box-shadow: 0 20px 45px rgba(36, 75, 123, 0.12);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+
+        .profile-caption {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 3px 2px;
+            font-size: 11px;
+            font-weight: 750;
+            color: var(--navy);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #17ad83;
+        }
+
+        /* JOURNEY */
+
+        .journey-section {
+            padding: 62px 0;
+        }
+
+        .journey-layout {
+            display: grid;
+            grid-template-columns: 0.65fr 1.35fr;
+            gap: 42px;
+            align-items: center;
+        }
+
+        .section-intro h2 {
+            font-size: clamp(28px, 3.2vw, 37px);
+            line-height: 1.2;
+            letter-spacing: -0.7px;
+            margin: 17px 0 15px;
+            color: var(--navy);
+        }
+
+        .section-intro h2 span {
+            color: var(--blue);
+        }
+
+        .section-intro p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .journey-card {
+            display: grid;
+            grid-template-columns: 105px 1fr;
+            gap: 24px;
+            align-items: stretch;
+            padding: 28px;
+            border: 1px solid #e3eefb;
+            border-radius: 17px;
+            background: linear-gradient(135deg, #f1f8ff, #f8fbff);
+        }
+
+        .journey-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 20px 0 0;
+            border-right: 1px solid #dbe8f8;
+        }
+
+        .journey-icon {
+            width: 66px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            font-size: 26px;
+            box-shadow: 0 0 0 10px #e0eeff;
+        }
+
+        .journey-line {
+            height: 34px;
+            width: 2px;
+            background: #8bbaff;
+            margin: 12px 0;
+        }
+
+        .journey-check {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: white;
+            background: var(--green);
+            box-shadow: 0 0 0 7px #dcf6ed;
+        }
+
+        .journey-kicker {
+            color: var(--blue);
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: 1px;
+        }
+
+        .journey-content h3 {
+            font-size: 21px;
+            line-height: 1.35;
+            margin: 5px 0 12px;
+        }
+
+        .journey-content p {
+            color: var(--text);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .journey-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 17px;
+            margin-top: 17px;
+        }
+
+        .journey-highlights span {
+            color: #405879;
+            font-size: 11px;
+            font-weight: 650;
+        }
+
+        .journey-highlights i {
+            color: var(--green);
+            margin-right: 5px;
+        }
+
+        /* EDUCATION, SKILLS AND INTERESTS */
+
+        .about-details {
+            padding: 60px 0 60px;
+            background: #f7faff;
+        }
+
+        /* CENTERED SECTION HEADING */
+        .section-heading {
+            margin-bottom: 29px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: clamp(27px, 3vw, 34px);
+            line-height: 1.25;
+            margin: 13px 0 6px;
+        }
+
+        .section-heading h2 span {
+            color: var(--blue);
+        }
+
+        .section-heading > p {
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .about-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: white;
+            padding: 22px 19px 18px;
+            border: 1px solid #dfebfa;
+            border-radius: 13px;
+            box-shadow: 0 7px 22px rgba(32, 62, 104, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(32, 62, 104, 0.08);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .about-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 21px;
+        }
+
+        .education-icon {
+            color: #2477e8;
+            background: #e4efff;
+        }
+
+        .testing-icon {
+            color: #159b78;
+            background: #dff7ef;
+        }
+
+        .problem-icon {
+            color: #b77b11;
+            background: #fff1ce;
+        }
+
+        .interest-icon {
+            color: #8254d6;
+            background: #eee4ff;
+        }
+
+        .card-number {
+            font-size: 17px;
+            font-weight: 800;
+            color: #b7d3ff;
+        }
+
+        .testing-card .card-number { color: #9bdccb; }
+        .problem-card .card-number { color: #f2d39a; }
+        .interest-card .card-number { color: #d2b9ff; }
+
+        .about-card h3 {
+            font-size: 17px;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            color: var(--muted);
+            font-size: 11.5px;
+            line-height: 1.7;
+            margin-bottom: 17px;
+        }
+
+        /* EDUCATION TIMELINE */
+
+        .education-timeline {
+            border-left: 2px solid #d7e7ff;
+            margin: 3px 0 18px 4px;
+            padding-left: 14px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 17px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            background: var(--blue);
+            border-radius: 50%;
+            left: -20px;
+            top: 5px;
+        }
+
+        .education-level {
+            color: var(--blue);
+            font-size: 9px;
+            font-weight: 850;
+            letter-spacing: 0.7px;
+        }
+
+        .timeline-content h4 {
+            font-size: 11px;
+            line-height: 1.5;
+            margin: 4px 0;
+        }
+
+        .institution,
+        .education-year {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.6;
+            margin-top: 3px;
+        }
+
+        .institution i,
+        .education-year i {
+            color: var(--blue);
+            margin-right: 4px;
+        }
+
+        /* SKILL LISTS */
+
+        .skill-list {
+            display: grid;
+            gap: 6px;
+            margin: 1px 0 18px;
+        }
+
+        .skill-list span {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 7px;
+            border-radius: 6px;
+            background: #f0faf7;
+            color: #356b61;
+            font-size: 10.5px;
+        }
+
+        .skill-list i {
+            color: var(--green);
+            font-size: 10px;
+        }
+
+        .feature-list,
+        .interest-list {
+            display: grid;
+            gap: 8px;
+            margin: 1px 0 18px;
+        }
+
+        .feature-list div,
+        .interest-list div {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 8px;
+            border-radius: 7px;
+            background: #fffaf0;
+            color: #526783;
+            font-size: 10.5px;
+        }
+
+        .feature-list i {
+            width: 25px;
+            height: 25px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fff0ca;
+            color: #b77b11;
+            flex-shrink: 0;
+        }
+
+        .interest-list div {
+            background: #f8f4ff;
+        }
+
+        .interest-list i {
+            width: 25px;
+            height: 25px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #eee4ff;
+            color: #8254d6;
+            flex-shrink: 0;
+        }
+
+        .card-footer {
+            border-top: 1px solid #edf2f8;
+            padding-top: 13px;
+            margin-top: auto;
+            color: #5c7393;
+            font-size: 10.5px;
+            font-weight: 650;
+        }
+
+        .card-footer i {
+            margin-right: 6px;
+            color: var(--blue);
+        }
+
+        .testing-card .card-footer i { color: var(--green); }
+        .problem-card .card-footer i { color: #b77b11; }
+        .interest-card .card-footer i { color: #8254d6; }
+
+        /* CLOSING SECTION */
+
+        .quality-closing {
+            padding: 70px 0;
+            background: linear-gradient(110deg, #e5f1ff, #f2f8ff);
+            border-top: 1px solid #dfedff;
+        }
+
+        .closing-content {
+            max-width: 720px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .closing-content h2 {
+            color: var(--navy);
+            font-size: clamp(28px, 3.4vw, 40px);
+            line-height: 1.25;
+            letter-spacing: -0.7px;
+            margin: 0 0 14px;
+        }
+
+        .closing-content p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* FOOTER */
+
+.site-footer {
+    background: #14243e;
+    color: #ffffff;
+    padding: 38px 0 25px;
+    text-align: center;
+}
+
+.footer-container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+.footer-logo {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.footer-logo i {
+    color: #66a5ff;
+    margin-right: 7px;
+}
+
+.site-footer p {
+    color: #c1cde0;
+    font-size: 14px;
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.14);
+    margin: 25px 0 18px;
+}
+
+.copyright {
+    color: #aebbd0;
+    font-size: 12px;
+}
+        /* TABLET */
+
+        @media (max-width: 1050px) {
+            .navbar {
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px 0;
+                gap: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 9px 17px;
+            }
+
+            .hero-layout {
+                gap: 30px;
+            }
+
+            .profile-card img {
+                height: 300px;
+            }
+
+            .about-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-card {
+                padding: 24px;
+            }
+
+            .card-description {
+                font-size: 13px;
+            }
+
+            .skill-list span,
+            .feature-list div,
+            .interest-list div {
+                font-size: 12px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+            .navbar {
+                width: 94%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                gap: 7px 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .about-hero {
+                padding: 45px 0;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-copy h1 {
+                font-size: 36px;
+                letter-spacing: -0.7px;
+            }
+
+            .hero-copy > p {
+                font-size: 14px;
+            }
+
+            .profile-card img {
+                height: 320px;
+            }
+
+            .journey-section {
+                padding: 48px 0;
+            }
+
+            .journey-layout {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .section-intro h2 {
+                font-size: 30px;
+            }
+
+            .journey-card {
+                grid-template-columns: 1fr;
+                padding: 23px 20px;
+            }
+
+            .journey-visual {
+                flex-direction: row;
+                justify-content: flex-start;
+                border-right: 0;
+                border-bottom: 1px solid #dbe8f8;
+                padding: 0 0 17px;
+            }
+
+            .journey-line {
+                height: 2px;
+                width: 30px;
+                margin: 0 10px;
+            }
+
+            .journey-icon {
+                width: 52px;
+                height: 52px;
+                font-size: 21px;
+                box-shadow: 0 0 0 6px #e0eeff;
+            }
+
+            .journey-check {
+                width: 32px;
+                height: 32px;
+                box-shadow: 0 0 0 5px #dcf6ed;
+            }
+
+            .about-details {
+                padding: 48px 0 40px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .about-card {
+                padding: 23px;
+            }
+
+            .card-description {
+                font-size: 13px;
+            }
+
+            .education-level {
+                font-size: 10px;
+            }
+
+            .timeline-content h4 {
+                font-size: 13px;
+            }
+
+            .institution,
+            .education-year {
+                font-size: 12px;
+            }
+
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .skill-list span {
+                font-size: 11px;
+                padding: 7px 9px;
+            }
+
+            .feature-list div,
+            .interest-list div {
+                font-size: 12px;
+            }
+
+            .quality-closing {
+                padding: 50px 0;
+            }
+
+            .closing-content p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero-copy h1 {
+                font-size: 31px;
+            }
+
+            .eyebrow,
+            .section-label {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span>Software QA</span>
+                <span class="logo-highlight">Tester</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="myproject.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="about-hero">
+            <div class="container hero-layout">
+
+                <div class="hero-copy">
+                    <span class="eyebrow">
+                        <i class="fa-solid fa-user"></i>
+                        A LITTLE ABOUT ME
+                    </span>
+
+                    <h1>
+                        Passionate About Quality.<br>
+                        <span>Focused on Excellence.</span>
+                    </h1>
+
+                    <p>
+                        I am an aspiring Quality Assurance professional interested in software testing, defect identification, 
+                        and creating reliable digital experiences. 
+                        I enjoy exploring how applications work, identifying where they can fail, 
+                        checking their functionality, and learning how to improve software quality.
+                    </p>
+
+                    <div class="hero-note">
+                        <span class="hero-chip">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            Curious mind.
+                        </span>
+                        <span class="hero-chip">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Quality-driven approach.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <img
+                            src="images/my-photo.jpg"
+                            alt="My professional profile photo"
+                            width="350"
+                            height="420"
+                        >
+
+                        <div class="profile-caption">
+                            <span class="status-dot"></span>
+                            Aspiring QA Professional
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MY JOURNEY -->
+        <section class="journey-section">
+            <div class="container journey-layout">
+
+                <div class="section-intro">
+                    <span class="eyebrow">
+                        <i class="fa-solid fa-compass"></i>
+                        MY JOURNEY
+                    </span>
+
+                    <h2>
+                        Learning to Think<br>
+                        <span>Like a Tester</span>
+                    </h2>
+
+                    <p>
+                        Understanding an application is the first step toward
+                        making it more reliable.
+                    </p>
+                </div>
+
+                <article class="journey-card">
+                    <div class="journey-visual">
+                        <div class="journey-icon">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <span class="journey-line"></span>
+
+                        <div class="journey-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="journey-content">
+                        <span class="journey-kicker">MY QA JOURNEY</span>
+
+                        <h3>From Curiosity to Quality</h3>
+
+                        <p>
+                            My interest in Quality Assurance comes from understanding
+                            how software behaves and finding problems that may affect
+                            users. Through academic work, hands-on projects and freelancing, I am
+                            developing my knowledge of manual testing, test case design,
+                            functional testing, and bug reporting.
+                        </p>
+
+                        <p>
+                           I value attention to detail, logical thinking, and continuous learning. 
+                           My goal is to strengthen my skills in both manual and automation testing.
+                        </p>
+
+                        <div class="journey-highlights">
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Practical Learning
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Analytical Thinking
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Continuous Growth
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION, SKILLS AND INTERESTS -->
+        <section class="about-details">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">
+                        <i class="fa-solid fa-layer-group"></i>
+                        MY FOUNDATION
+                    </span>
+
+                    <h2>Education, <span>Skills &amp; Interests</span></h2>
+
+                    <p>
+                        The knowledge, abilities, and interests that shape
+                        my approach to software quality.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <!-- EDUCATION CARD -->
+                    <article class="about-card education-card">
+                        <div class="card-top">
+                            <div class="about-icon education-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <span class="card-number">01</span>
+                        </div>
+
+                        <h3>Education</h3>
+
+                        <p class="card-description">
+                            Building my academic and technical foundation through
+                            computer applications and technology.
+                        </p>
+
+                        <div class="education-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+
+                                <div class="timeline-content">
+                                    <span class="education-level">
+                                        BACHELOR'S DEGREE
+                                    </span>
+
+                                    <h4>
+                                        Bachelor of Computer Applications (BCA)
+                                    </h4>
+
+                                    <p class="institution">
+                                        <i class="fa-solid fa-building-columns"></i>
+                                        Divyagyan College
+                                    </p>
+
+                                    <span class="education-year">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        2023 – 2028
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+
+                                <div class="timeline-content">
+                                    <span class="education-level">
+                                        HIGHER SECONDARY
+                                    </span>
+
+                                    <h4>+2 Science (Biology)</h4>
+
+                                    <p class="institution">
+                                        <i class="fa-solid fa-building-columns"></i>
+                                        Little Angels' College
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <i class="fa-solid fa-book-open"></i>
+                            Learning Never Stops
+                        </div>
+                    </article>
+
+                    <!-- SOFTWARE TESTING CARD -->
+                    <article class="about-card testing-card">
+                        <div class="card-top">
+                            <div class="about-icon testing-icon">
+                                <i class="fa-solid fa-bug-slash"></i>
+                            </div>
+                            <span class="card-number">02</span>
+                        </div>
+
+                        <h3>Software Testing</h3>
+
+                        <p class="card-description">
+                            Learning to verify application functionality, identify
+                            defects, and check whether software behaves as expected.
+                        </p>
+
+                        <div class="skill-list">
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Manual Testing
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Test Case Design
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Bug Reporting
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Functional Testing
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Regression Testing
+                            </span>
+                        </div>
+
+                        <div class="card-footer">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Quality First
+                        </div>
+                    </article>
+
+                    <!-- PROBLEM SOLVING CARD -->
+                    <article class="about-card problem-card">
+                        <div class="card-top">
+                            <div class="about-icon problem-icon">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span class="card-number">03</span>
+                        </div>
+
+                        <h3>Problem Solving</h3>
+
+                        <p class="card-description">
+                            I enjoy investigating unexpected results, exploring
+                            possible causes, and understanding why an application
+                            behaves differently than expected.
+                        </p>
+
+                        <div class="feature-list">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>Investigating Defects</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-brain"></i>
+                                <span>Logical Thinking</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-file-circle-check"></i>
+                                <span>Clear Bug Reports</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <i class="fa-solid fa-crosshairs"></i>
+                            Attention to Detail
+                        </div>
+                    </article>
+
+                    <!-- INTERESTS CARD -->
+                    <article class="about-card interest-card">
+                        <div class="card-top">
+                            <div class="about-icon interest-icon">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <span class="card-number">04</span>
+                        </div>
+
+                        <h3>Interests &amp; Growth</h3>
+
+                        <p class="card-description">
+                            I am interested in learning new tools, gaining practical
+                            experience, and expanding my knowledge of software
+                            quality assurance.
+                        </p>
+
+                        <div class="interest-list">
+                            <div>
+                                <i class="fa-solid fa-robot"></i>
+                                <span>Test Automation</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-microchip"></i>
+                                <span>New Testing Tools</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-code"></i>
+                                <span>Practical Projects</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            Always Improving
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING SECTION -->
+        <section class="quality-closing">
+            <div class="container">
+                <div class="closing-content">
+                    <h2>Quality Is Built Through Care.</h2>
+
+                    <p>
+                        Every detail matters. By testing thoughtfully, learning
+                        continuously, and keeping users in mind, I aim to contribute
+                        to software experiences people can trust.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+     <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <a href="about.html" class="footer-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                QA Portfolio
+            </a>
+
+            <p>Ensuring quality, one test at a time.</p>
+
+            <div class="footer-divider"></div>
+
+            <span class="copyright">
+                &copy;  QA Portfolio. All rights reserved.
+            </span>
+
+        </div>
+    </footer>
+
+</body>
+</html>

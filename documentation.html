@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Testing Documentation | Software QA Tester</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8ff;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Navbar */
+
+        .site-header {
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            color: #172554;
+            font-size: 22px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-highlight {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #334155;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2563eb;
+        }
+
+        /* Main Section */
+
+        .documentation-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 75px 24px 90px;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: #2563eb;
+            background: #dbeafe;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+        }
+
+        .section-heading h1 {
+            color: #172554;
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* Documentation Cards */
+
+        .documentation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .documentation-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
+        }
+
+        .documentation-card:hover {
+            transform: translateY(-5px);
+            border-color: #93c5fd;
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.10);
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 14px;
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .documentation-card h2 {
+            color: #172554;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .documentation-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .project-details span {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Side-by-side Buttons */
+
+        .card-buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 10px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .documentation-button {
+            display: inline-flex;
+            flex: 1 1 0;
+            min-width: 0;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 12px 10px;
+            border: 1px solid #2563eb;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            transition: background 0.3s ease,
+                        transform 0.2s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .documentation-button:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(37, 99, 235, 0.16);
+        }
+
+        .automation-button {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-color: #bfdbfe;
+        }
+
+        .automation-button:hover {
+            background: #dbeafe;
+            color: #1e40af;
+            border-color: #93c5fd;
+        }
+
+        /* FOOTER */
+
+.site-footer {
+    background: #14243e;
+    color: #ffffff;
+    padding: 38px 0 25px;
+    text-align: center;
+}
+
+.footer-container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+.footer-logo {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.footer-logo i {
+    color: #66a5ff;
+    margin-right: 7px;
+}
+
+.site-footer p {
+    color: #c1cde0;
+    font-size: 14px;
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.14);
+    margin: 25px 0 18px;
+}
+
+.copyright {
+    color: #aebbd0;
+    font-size: 12px;
+}
+
+        /* Responsive Design */
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px 20px;
+            }
+
+            .documentation-section {
+                padding-top: 55px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .documentation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h1 {
+                font-size: 30px;
+            }
+
+            .section-heading p {
+                font-size: 14px;
+            }
+
+            .documentation-section {
+                padding: 45px 16px 60px;
+            }
+
+            .documentation-card {
+                padding: 24px;
+            }
+
+            .documentation-card h2 {
+                font-size: 19px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                gap: 12px 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .card-buttons {
+                gap: 8px;
+            }
+
+            .documentation-button {
+                padding: 11px 7px;
+                font-size: 12px;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .documentation-card {
+                padding: 18px;
+            }
+
+            .card-buttons {
+                flex-direction: column;
+            }
+
+            .documentation-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span>Software QA</span>
+                <span class="logo-highlight">Tester</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="myproject.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="documentation.html" class="active">Documentation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Documentation Section -->
+    <main>
+        <section class="documentation-section">
+
+            <div class="section-heading">
+                <span class="section-label">MY QA WORK</span>
+
+                <h1>QA Testing Documentation</h1>
+
+                <p>
+                    Explore my software testing documentation, including
+                    test cases, test scenarios, test execution results,
+                    automation scripts, and project README files.
+                </p>
+            </div>
+
+            <div class="documentation-grid">
+
+                <!-- Complaint Management System -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+
+                    <h2>Complaint Management System</h2>
+
+                    <p>
+                        Manual testing documentation covering user
+                        registration, login, complaint submission,
+                        profile management, and admin workflows.
+                    </p>
+
+                    <div class="project-details">
+                        <span>Manual Testing</span>
+                        <span>Test Cases</span>
+                        <span>Validation</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1Cf8u2bxGqQT13J5-hvnXWJhVhTRT_7Er?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Crop Management System -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+
+                    <h2>Crop Management System</h2>
+
+                    <p>
+                        Testing documentation for registration, login,
+                        crop management, expenses, sales, CRUD operations,
+                        and input validation.
+                    </p>
+
+                    <div class="project-details">
+                        <span>Manual Testing</span>
+                        <span>CRUD Testing</span>
+                        <span>Functional Testing</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1v-m83uXxWV0g3DC1YO1aCNrqz4PN0Z_f?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Skill Sharing System -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+
+                    <h2>Skill Sharing System</h2>
+
+                    <p>
+                        Testing documentation for registration, login,
+                        skill sharing and management, user interactions,
+                        and input validation.
+                    </p>
+
+                    <div class="project-details">
+                        <span>Manual Testing</span>
+                        <span>Test Cases</span>
+                        <span>Functional Testing</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1p0UQF4xBg4h4pfpDuvHQ27BcLzq96I4T?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SauceDemo -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <h2>SauceDemo Testing</h2>
+
+                    <p>
+                        Testing documentation for login, product selection,
+                        add-to-cart functionality, and checkout workflows,
+                        including manual and Playwright automation testing.
+                    </p>
+
+                    <div class="project-details">
+                        <span>Manual Testing</span>
+                        <span>Playwright</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1bPsSM8gF26wPtlHZOevfhX3epicH1I6A?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                        </a>
+
+                        <a
+                            href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Sauce-Demo"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button automation-button">
+                            <i class="fa-brands fa-github"></i>
+                            View Automation Code
+                        </a>
+                    </div>
+                </article>
+
+                <!-- DemoBlaze -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+
+                    <h2>DemoBlaze Testing</h2>
+
+                    <p>
+                        Testing documentation for signup, login,
+                        product selection, cart functionality,
+                        and order placement using manual and
+                        Playwright automation testing.
+                    </p>
+
+                    <div class="project-details">
+                        <span>Manual Testing</span>
+                        <span>Playwright</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1jqy9KDStGPU3HcPa9in2OxuTB_VxYTOZ?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                        </a>
+
+                        <a
+                            href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Demo-Blaze"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button automation-button">
+                            <i class="fa-brands fa-github"></i>
+                            View Automation Code
+                        </a>
+                    </div>
+                </article>
+
+                <!-- API Testing -->
+                <article class="documentation-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-plug"></i>
+                    </div>
+
+                    <h2>API Testing – CRUD Operations</h2>
+
+                    <p>
+                        API testing practice covering GET, POST, PUT,
+                        and DELETE requests, with status-code checks
+                        and response validation.
+                    </p>
+
+                    <div class="project-details">
+                        <span>API Testing</span>
+                        <span>Postman</span>
+                        <span>CRUD Operations</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <a
+                            href="https://drive.google.com/drive/folders/1OrSKz0xJcgy6z3gOqUHCaFWq_HWBGv20?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="documentation-button">
+                            <i class="fa-solid fa-file-lines"></i>
+                            View Documentation
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+     <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <a href="documentation.html" class="footer-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                QA Portfolio
+            </a>
+
+            <p>Ensuring quality, one test at a time.</p>
+
+            <div class="footer-divider"></div>
+
+            <span class="copyright">
+                &copy;  QA Portfolio. All rights reserved.
+            </span>
+
+        </div>
+    </footer>
+
+</body>
+</html>

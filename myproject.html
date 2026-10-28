@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore my software QA testing projects and practical testing experience.">
+    <title>Projects | Software QA Tester</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7f9fc;
+            color: #172b4d;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid #e5eaf2;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar {
+            width: min(1200px, 92%);
+            min-height: 82px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            gap: 6px;
+            font-size: 23px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-highlight {
+            color: #2477e8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #53627a;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2477e8;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #2477e8;
+            padding-bottom: 6px;
+        }
+
+        .projects-section {
+            padding: 75px 0 90px;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 42px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: #e7f0ff;
+            color: #2477e8;
+            border-radius: 30px;
+            padding: 6px 13px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .section-heading h1 {
+            font-size: clamp(32px, 4vw, 42px);
+            line-height: 1.25;
+            margin: 17px 0 12px;
+        }
+
+        .section-heading h1 span {
+            color: #2477e8;
+        }
+
+        .section-heading p {
+            color: #687890;
+            font-size: 15px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #e1e8f2;
+            border-radius: 13px;
+            padding: 25px;
+            transition: transform 0.2s ease,
+                        border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #a9caff;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: #edf4ff;
+            color: #2477e8;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h2 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #687890;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+            font-size: 13px;
+            margin-bottom: 9px;
+        }
+
+        .project-points {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-points li {
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            color: #52637b;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .project-points i {
+            color: #159b74;
+            margin-top: 5px;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+            padding-top: 17px;
+            border-top: 1px solid #edf1f7;
+        }
+
+        .tools span {
+            background: #f0f5fc;
+            color: #385578;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .site-footer {
+            padding: 35px 0 24px;
+            text-align: center;
+            background: #14243e;
+            color: #fff;
+        }
+
+        .footer-container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        .footer-logo {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .footer-logo i {
+            color: #66a5ff;
+            margin-right: 6px;
+        }
+
+        .site-footer p {
+            margin-top: 8px;
+            color: #c1cde0;
+            font-size: 14px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,.15);
+            margin: 23px 0 17px;
+        }
+
+        .copyright {
+            color: #aebbd0;
+            font-size: 12px;
+        }
+
+        @media (max-width: 950px) {
+            .navbar {
+                padding: 18px 0;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 9px 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .projects-section {
+                padding: 50px 0 65px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span>Software QA</span>
+                <span class="logo-highlight">Tester</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="myproject.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">PRACTICAL WORK</span>
+                    <h1>My <span>Projects</span></h1>
+                    <p>
+                        A selection of software testing projects where I
+                        practiced test case design, functional testing,
+                        defect identification, and test automation.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+
+                        <h2>Complaint Management System</h2>
+
+                        <p class="project-description">
+                            Manual testing of a web-based system for
+                            submitting, managing, and tracking complaints.
+                        </p>
+
+                        <h3>Testing Activities</h3>
+
+                        <ul class="project-points">
+                            <li><i class="fa-solid fa-check"></i><span>Tested login, logout, and user registration.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Tested complaint submission and profile editing.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Checked search, filters, and user notifications.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Verified admin dashboard and complaint status updates.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Performed functional, UI, validation, and end-to-end testing.</span></li>
+                        </ul>
+
+                        <div class="tools">
+                            <span>Manual Testing</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+
+                        <h2>SauceDemo Testing Project</h2>
+
+                        <p class="project-description">
+                            Manual and automated testing of the SauceDemo
+                            online shopping application.
+                        </p>
+
+                        <h3>Testing Activities</h3>
+
+                        <ul class="project-points">
+                            <li><i class="fa-solid fa-check"></i><span>Designed and executed 19 manual test cases.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Covered login, add-to-cart, and checkout modules.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Performed positive and negative testing.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Automated login, cart, and checkout flows using Playwright.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Verified validation messages, navigation, and order placement.</span></li>
+                        </ul>
+
+                        <div class="tools">
+                            <span>Manual Testing</span>
+                            <span>Playwright</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+
+                        <h2>DemoBlaze Testing Project</h2>
+
+                        <p class="project-description">
+                            Manual and automated testing of an online
+                            shopping website.
+                        </p>
+
+                        <h3>Testing Activities</h3>
+
+                        <ul class="project-points">
+                            <li><i class="fa-solid fa-check"></i><span>Designed and executed 19 manual test cases.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Covered signup, login, add-to-cart, and place-order modules.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Performed functional and validation testing.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Automated authentication, cart, and purchase flows.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Verified alerts, error messages, and order completion.</span></li>
+                        </ul>
+
+                        <div class="tools">
+                            <span>Manual Testing</span>
+                            <span>Playwright</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <a href="myproject.html" class="footer-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                QA Portfolio
+            </a>
+
+            <p>Ensuring quality, one test at a time.</p>
+
+            <div class="footer-divider"></div>
+
+            <span class="copyright">
+                &copy;  QA Portfolio. All rights reserved.
+            </span>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Software QA Tester</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #ffffff;
+            color: #172b4d;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5eaf2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: min(1200px, 92%);
+            min-height: 82px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: #172b4d;
+            white-space: nowrap;
+        }
+
+        .logo-highlight {
+            color: #2477e8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #53627a;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2477e8;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #2477e8;
+        }
+
+        /* HOME HERO */
+
+        .home-hero {
+            min-height: calc(100vh - 82px);
+            background: linear-gradient(
+                135deg,
+                #f1f7ff,
+                #ffffff 65%,
+                #eaf3ff
+            );
+            display: flex;
+            align-items: center;
+            padding: 65px 0;
+        }
+
+        .hero-container {
+            width: min(1120px, 90%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        /* LEFT CONTENT */
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #2477e8;
+            background: #e5efff;
+            border: 1px solid #d4e4ff;
+            border-radius: 30px;
+            padding: 7px 15px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(32px, 3.5vw, 46px);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 22px;
+            color: #172b4d;
+        }
+
+        .hero-content h1 span {
+            color: #2477e8;
+        }
+
+        /* PROFESSIONAL SUMMARY CARD */
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #dbe7f8;
+            border-left: 4px solid #2477e8;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 32px rgba(30, 75, 130, 0.08);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 38px rgba(30, 75, 130, 0.12);
+        }
+
+        .summary-card p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #53627a;
+        }
+
+        .summary-card strong {
+            color: #172b4d;
+        }
+
+        /* CENTERED COLLABORATION MESSAGE */
+
+        .hero-message {
+            max-width: 520px;
+            margin: 0 auto 25px;
+            text-align: center;
+        }
+
+        .hero-message h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            color: #172b4d;
+            margin-bottom: 8px;
+        }
+
+        .hero-message p {
+            color: #53627a;
+            font-size: 15px;
+        }
+
+        /* CENTERED BUTTONS */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 19px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #2477e8;
+            color: #ffffff;
+            border-color: #2477e8;
+        }
+
+        .btn-primary:hover {
+            background: #155fc5;
+            border-color: #155fc5;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            color: #2477e8;
+            border-color: #2477e8;
+        }
+
+        .btn-outline:hover {
+            background: #2477e8;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* RIGHT SIDE PHOTO */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame {
+            width: min(100%, 390px);
+            aspect-ratio: 4 / 5;
+            padding: 12px;
+            border: 1px solid #dbe7f8;
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 20px 55px rgba(30, 75, 130, 0.12);
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            background: #14243e;
+            color: #ffffff;
+            padding: 38px 0 25px;
+            text-align: center;
+        }
+
+        .footer-container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .footer-logo i {
+            color: #66a5ff;
+            margin-right: 7px;
+        }
+
+        .site-footer p {
+            color: #c1cde0;
+            font-size: 14px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.14);
+            margin: 25px 0 18px;
+        }
+
+        .copyright {
+            color: #aebbd0;
+            font-size: 12px;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 1000px) {
+            .navbar {
+                flex-direction: column;
+                justify-content: center;
+                padding: 18px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
+            }
+
+            .hero-container {
+                gap: 35px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .summary-card {
+                padding: 20px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+            .home-hero {
+                padding: 45px 0 55px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                margin: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+                letter-spacing: -0.5px;
+            }
+
+            .summary-card {
+                text-align: left;
+                padding: 21px;
+            }
+
+            .summary-card p {
+                font-size: 14px;
+            }
+
+            .hero-message {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            .hero-message h2 {
+                font-size: 21px;
+            }
+
+            .hero-message p {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                grid-row: 1;
+            }
+
+            .photo-frame {
+                width: min(280px, 85%);
+            }
+
+            .nav-links {
+                gap: 10px 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 21px;
+            }
+
+            .hero-content h1 {
+                font-size: 31px;
+            }
+
+            .hero-tag {
+                font-size: 12px;
+            }
+
+            .summary-card {
+                padding: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .nav-links {
+                gap: 8px 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="site-header">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <span>Software QA</span>
+                <span class="logo-highlight">Tester</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="myproject.html">My Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+
+    <main>
+        <section class="home-hero">
+            <div class="hero-container">
+
+                <!-- LEFT SIDE CONTENT -->
+
+                <div class="hero-content">
+
+                    
+
+                    <h1>
+                        <span>Finding Bugs. Building Trust.</span>
+                    </h1>
+
+                    <!-- PROFESSIONAL SUMMARY CARD -->
+
+                    <div class="summary-card">
+                        <p>
+                            <strong>Aspiring Software QA Tester</strong> with a
+                            strong interest in software quality assurance,
+                            functional testing, and defect identification.
+                            Skilled in manual testing, test case design,
+                            bug reporting, and evaluating application
+                            functionality. Focused on developing practical
+                            testing skills, improving problem-solving abilities,
+                            and helping deliver reliable, user-friendly software
+                            through a quality-driven approach.
+                        </p>
+                    </div>
+
+                    <!-- CENTERED MESSAGE -->
+
+                    <div class="hero-message">
+    <p>
+        <strong>
+            Let's connect and create better software through
+            quality testing.
+        </strong>
+    </p>
+</div>
+
+                    <!-- CENTERED ACTION BUTTONS -->
+
+                    <div class="hero-buttons">
+
+                        <a href="images/cv.pdf"
+                           class="btn btn-primary"
+                           download>
+                            <i class="fa-solid fa-download"></i>
+                            Download CV
+                        </a>
+
+                        <a href="contact.html" class="btn btn-outline">
+                            <i class="fa-regular fa-envelope"></i>
+                            Get in Touch
+                        </a>
+
+                        <a href="myproject.html" class="btn btn-outline">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View My Work
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE PHOTO -->
+
+                <div class="hero-image">
+                    <div class="photo-frame">
+                        <img src="images/my-photo.jpg"
+                             alt="My profile photo">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <a href="index.html" class="footer-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                QA Portfolio
+            </a>
+
+            <p>Ensuring quality, one test at a time.</p>
+
+            <div class="footer-divider"></div>
+
+            <span class="copyright">
+                &copy;  QA Portfolio. All rights reserved.
+            </span>
+
+        </div>
+    </footer>
+
+</body>
+</html>
