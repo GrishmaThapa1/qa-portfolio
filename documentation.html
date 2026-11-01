@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore my QA testing documentation, including manual testing, test cases, automation scripts, and project reports.">
     <title>QA Testing Documentation | Software QA Tester</title>
 
     <link rel="stylesheet"
@@ -24,6 +26,7 @@
             background: #f5f8ff;
             color: #1e293b;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         a {
@@ -38,10 +41,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         .navbar {
-            max-width: 1200px;
+            width: min(1200px, 100%);
             margin: auto;
             padding: 18px 24px;
             display: flex;
@@ -55,6 +59,7 @@
             font-size: 22px;
             font-weight: 800;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-highlight {
@@ -64,8 +69,13 @@
         .nav-links {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 22px;
             list-style: none;
+        }
+
+        .nav-links li {
+            white-space: nowrap;
         }
 
         .nav-links a {
@@ -83,7 +93,7 @@
         /* Main Section */
 
         .documentation-section {
-            max-width: 1200px;
+            width: min(1200px, 100%);
             margin: auto;
             padding: 75px 24px 90px;
         }
@@ -134,6 +144,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            min-width: 0;
             transition: transform 0.3s ease,
                         box-shadow 0.3s ease,
                         border-color 0.3s ease;
@@ -156,6 +167,7 @@
             border-radius: 14px;
             font-size: 25px;
             margin-bottom: 22px;
+            flex-shrink: 0;
         }
 
         .documentation-card h2 {
@@ -187,7 +199,7 @@
             font-weight: 600;
         }
 
-        /* Side-by-side Buttons */
+        /* Buttons */
 
         .card-buttons {
             display: flex;
@@ -238,60 +250,62 @@
             border-color: #93c5fd;
         }
 
-        /* FOOTER */
+        /* Footer */
 
-.site-footer {
-    background: #14243e;
-    color: #ffffff;
-    padding: 38px 0 25px;
-    text-align: center;
-}
+        .site-footer {
+            background: #14243e;
+            color: #ffffff;
+            padding: 38px 0 25px;
+            text-align: center;
+        }
 
-.footer-container {
-    width: min(1120px, 90%);
-    margin: auto;
-}
+        .footer-container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
 
-.footer-logo {
-    display: inline-block;
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
+        .footer-logo {
+            display: inline-block;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
 
-.footer-logo i {
-    color: #66a5ff;
-    margin-right: 7px;
-}
+        .footer-logo i {
+            color: #66a5ff;
+            margin-right: 7px;
+        }
 
-.site-footer p {
-    color: #c1cde0;
-    font-size: 14px;
-}
+        .site-footer p {
+            color: #c1cde0;
+            font-size: 14px;
+        }
 
-.footer-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.14);
-    margin: 25px 0 18px;
-}
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.14);
+            margin: 25px 0 18px;
+        }
 
-.copyright {
-    color: #aebbd0;
-    font-size: 12px;
-}
+        .copyright {
+            color: #aebbd0;
+            font-size: 12px;
+        }
 
-        /* Responsive Design */
+        /* Tablet and Smaller Laptop */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
             .navbar {
                 flex-direction: column;
+                gap: 14px;
+                padding: 16px 20px;
             }
 
             .nav-links {
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 14px 20px;
+                gap: 12px 20px;
             }
 
             .documentation-section {
@@ -299,9 +313,12 @@
             }
         }
 
-        @media (max-width: 600px) {
+        /* Mobile */
+
+        @media (max-width: 700px) {
             .documentation-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .section-heading h1 {
@@ -329,7 +346,7 @@
             }
 
             .nav-links {
-                gap: 12px 16px;
+                gap: 10px 15px;
             }
 
             .nav-links a {
@@ -347,9 +364,32 @@
             }
         }
 
-        @media (max-width: 360px) {
+        /* Small Mobile */
+
+        @media (max-width: 420px) {
+            .navbar {
+                padding: 14px 12px;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 9px 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .documentation-section {
+                padding: 38px 14px 50px;
+            }
+
+            .section-heading h1 {
+                font-size: 27px;
+            }
+
             .documentation-card {
-                padding: 18px;
+                padding: 20px;
             }
 
             .card-buttons {
@@ -358,6 +398,33 @@
 
             .documentation-button {
                 width: 100%;
+                min-height: 42px;
+            }
+
+            .footer-container {
+                width: 92%;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 8px 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .section-heading h1 {
+                font-size: 25px;
+            }
+
+            .documentation-card {
+                padding: 18px;
             }
         }
     </style>
@@ -622,8 +689,7 @@
         </section>
     </main>
 
-     <!-- FOOTER -->
-
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
 
@@ -637,7 +703,7 @@
             <div class="footer-divider"></div>
 
             <span class="copyright">
-                &copy;  QA Portfolio. All rights reserved.
+                &copy; QA Portfolio. All rights reserved.
             </span>
 
         </div>
