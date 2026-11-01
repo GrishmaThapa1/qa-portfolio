@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Software QA Tester</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preload" as="image" href="images/my-photo.jpg">
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
+        /* Reset default browser spacing */
         * {
             margin: 0;
             padding: 0;
@@ -18,6 +21,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -25,22 +29,25 @@
             background: #ffffff;
             color: #172b4d;
             line-height: 1.7;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         a {
             text-decoration: none;
         }
 
-        /* NAVBAR */
-
+        /* Navbar container */
         .site-header {
             background: #ffffff;
             border-bottom: 1px solid #e5eaf2;
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
+        /* Navbar layout */
         .navbar {
             width: min(1200px, 92%);
             min-height: 82px;
@@ -48,25 +55,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
+        /* Website logo */
         .logo {
             font-size: 23px;
             font-weight: 800;
             color: #172b4d;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-highlight {
             color: #2477e8;
         }
 
+        /* Navigation links */
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 25px;
+            justify-content: flex-end;
+            gap: 20px;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -86,21 +98,16 @@
             border-bottom: 2px solid #2477e8;
         }
 
-        /* HOME HERO */
-
+        /* Homepage hero background */
         .home-hero {
             min-height: calc(100vh - 82px);
-            background: linear-gradient(
-                135deg,
-                #f1f7ff,
-                #ffffff 65%,
-                #eaf3ff
-            );
+            background: linear-gradient(135deg, #f1f7ff, #ffffff 65%, #eaf3ff);
             display: flex;
             align-items: center;
             padding: 65px 0;
         }
 
+        /* Hero content and image layout */
         .hero-container {
             width: min(1120px, 90%);
             margin: auto;
@@ -110,8 +117,7 @@
             gap: 55px;
         }
 
-        /* LEFT CONTENT */
-
+        /* Main introduction section */
         .hero-content {
             max-width: 650px;
         }
@@ -142,8 +148,7 @@
             color: #2477e8;
         }
 
-        /* PROFESSIONAL SUMMARY CARD */
-
+        /* Professional summary card */
         .summary-card {
             background: rgba(255, 255, 255, 0.92);
             border: 1px solid #dbe7f8;
@@ -152,8 +157,7 @@
             padding: 24px;
             margin-bottom: 32px;
             box-shadow: 0 12px 32px rgba(30, 75, 130, 0.08);
-            transition: transform 0.3s ease,
-                        box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .summary-card:hover {
@@ -171,8 +175,7 @@
             color: #172b4d;
         }
 
-        /* CENTERED COLLABORATION MESSAGE */
-
+        /* Collaboration message */
         .hero-message {
             max-width: 520px;
             margin: 0 auto 25px;
@@ -191,8 +194,7 @@
             font-size: 15px;
         }
 
-        /* CENTERED BUTTONS */
-
+        /* Hero action buttons */
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -240,8 +242,7 @@
             transform: translateY(-2px);
         }
 
-        /* RIGHT SIDE PHOTO */
-
+        /* Profile photo container */
         .hero-image {
             display: flex;
             justify-content: center;
@@ -267,8 +268,7 @@
             border-radius: 16px;
         }
 
-        /* FOOTER */
-
+        /* Footer section */
         .site-footer {
             background: #14243e;
             color: #ffffff;
@@ -310,20 +310,18 @@
             font-size: 12px;
         }
 
-        /* TABLET */
-
+        /* Tablet layout */
         @media (max-width: 1000px) {
             .navbar {
                 flex-direction: column;
                 justify-content: center;
-                padding: 18px 0;
-                gap: 12px;
+                padding: 15px 0;
+                gap: 10px;
             }
 
             .nav-links {
                 justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px 20px;
+                gap: 10px 18px;
             }
 
             .hero-container {
@@ -339,14 +337,38 @@
             }
         }
 
-        /* MOBILE */
-
+        /* Mobile layout */
         @media (max-width: 768px) {
+            .navbar {
+                width: 94%;
+                padding: 13px 0;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 8px 15px;
+            }
+
+            .nav-links li {
+                flex-shrink: 0;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
             .home-hero {
                 padding: 45px 0 55px;
             }
 
             .hero-container {
+                width: 90%;
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
@@ -396,19 +418,21 @@
             .photo-frame {
                 width: min(280px, 85%);
             }
+        }
+
+        /* Small mobile layout */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
 
             .nav-links {
-                gap: 10px 16px;
+                column-gap: 12px;
+                row-gap: 7px;
             }
 
             .nav-links a {
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 21px;
+                font-size: 12px;
             }
 
             .hero-content h1 {
@@ -431,9 +455,25 @@
             .hero-buttons .btn {
                 width: 100%;
             }
+        }
+
+        /* Extra small mobile layout */
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 19px;
+            }
 
             .nav-links {
-                gap: 8px 13px;
+                column-gap: 10px;
+                row-gap: 6px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
             }
         }
     </style>
@@ -441,11 +481,9 @@
 
 <body>
 
-    <!-- NAVBAR -->
-
+    <!-- Website navigation -->
     <header class="site-header">
         <nav class="navbar">
-
             <a href="index.html" class="logo">
                 <span>Software QA</span>
                 <span class="logo-highlight">Tester</span>
@@ -459,27 +497,19 @@
                 <li><a href="documentation.html">Documentation</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-
         </nav>
     </header>
 
-    <!-- HOME PAGE -->
-
+    <!-- Homepage main content -->
     <main>
         <section class="home-hero">
             <div class="hero-container">
 
-                <!-- LEFT SIDE CONTENT -->
-
+                <!-- Introduction and professional summary -->
                 <div class="hero-content">
-
-                    
-
                     <h1>
                         <span>Finding Bugs. Building Trust.</span>
                     </h1>
-
-                    <!-- PROFESSIONAL SUMMARY CARD -->
 
                     <div class="summary-card">
                         <p>
@@ -495,24 +525,19 @@
                         </p>
                     </div>
 
-                    <!-- CENTERED MESSAGE -->
-
+                    <!-- Collaboration message -->
                     <div class="hero-message">
-    <p>
-        <strong>
-            Let's connect and create better software through
-            quality testing.
-        </strong>
-    </p>
-</div>
+                        <p>
+                            <strong>
+                                Let's connect and create better software through
+                                quality testing.
+                            </strong>
+                        </p>
+                    </div>
 
-                    <!-- CENTERED ACTION BUTTONS -->
-
+                    <!-- Portfolio action buttons -->
                     <div class="hero-buttons">
-
-                        <a href="images/cv.pdf"
-                           class="btn btn-primary"
-                           download>
+                        <a href="images/cv.pdf" class="btn btn-primary" download>
                             <i class="fa-solid fa-download"></i>
                             Download CV
                         </a>
@@ -526,17 +551,20 @@
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             View My Work
                         </a>
-
                     </div>
-
                 </div>
 
-                <!-- RIGHT SIDE PHOTO -->
-
+                <!-- Profile photo -->
                 <div class="hero-image">
                     <div class="photo-frame">
-                        <img src="images/my-photo.jpg"
-                             alt="My profile photo">
+                        <img
+                            src="images/my-photo.jpg"
+                            alt="My profile photo"
+                            width="800"
+                            height="1000"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async">
                     </div>
                 </div>
 
@@ -544,11 +572,9 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-
+    <!-- Website footer -->
     <footer class="site-footer">
         <div class="footer-container">
-
             <a href="index.html" class="footer-logo">
                 <i class="fa-solid fa-shield-halved"></i>
                 QA Portfolio
@@ -559,9 +585,8 @@
             <div class="footer-divider"></div>
 
             <span class="copyright">
-                &copy;  QA Portfolio. All rights reserved.
+                &copy; QA Portfolio. All rights reserved.
             </span>
-
         </div>
     </footer>
 
