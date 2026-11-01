@@ -19,11 +19,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Segoe UI", Arial, sans-serif;
             background: #f7f9fc;
             color: #172b4d;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         a {
@@ -38,13 +43,15 @@
             border-bottom: 1px solid #e5eaf2;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 1000;
+            width: 100%;
         }
 
         .navbar {
-            width: min(1200px, 92%);
+            width: min(1200px, 100%);
             min-height: 82px;
             margin: auto;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,6 +64,7 @@
             font-size: 23px;
             font-weight: 800;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-highlight {
@@ -66,15 +74,21 @@
         .nav-links {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             flex-wrap: wrap;
             gap: 22px;
             list-style: none;
+        }
+
+        .nav-links li {
+            white-space: nowrap;
         }
 
         .nav-links a {
             color: #53627a;
             font-size: 14px;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover,
@@ -87,7 +101,7 @@
             padding-bottom: 6px;
         }
 
-        /* Experience section */
+        /* Experience Section */
 
         .experience-section {
             padding: 75px 0 90px;
@@ -140,6 +154,14 @@
             border: 1px solid #e1e8f2;
             border-radius: 14px;
             padding: 30px;
+            min-width: 0;
+            transition: border-color 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 10px 25px rgba(36, 119, 232, 0.07);
         }
 
         .experience-top {
@@ -174,17 +196,6 @@
             font-weight: 700;
         }
 
-        .date {
-            display: inline-block;
-            flex-shrink: 0;
-            background: #edf4ff;
-            color: #2477e8;
-            border-radius: 7px;
-            padding: 7px 12px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
         .experience-card h3 {
             font-size: 14px;
             margin-bottom: 12px;
@@ -207,6 +218,7 @@
             color: #159b74;
             margin-top: 6px;
             font-size: 12px;
+            flex-shrink: 0;
         }
 
         .experience-card li:last-child {
@@ -254,28 +266,31 @@
             font-size: 12px;
         }
 
-        /* Responsive */
+        /* Tablet and Smaller Laptop */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
             .navbar {
-                padding: 18px 0;
                 flex-direction: column;
-                gap: 12px;
+                gap: 14px;
+                padding: 16px 20px;
             }
 
             .nav-links {
                 justify-content: center;
-                gap: 12px 18px;
+                gap: 12px 20px;
             }
         }
 
-        @media (max-width: 600px) {
+        /* Mobile */
+
+        @media (max-width: 700px) {
             .nav-links {
-                gap: 9px 13px;
+                justify-content: center;
+                gap: 10px 15px;
             }
 
             .nav-links a {
-                font-size: 12px;
+                font-size: 13px;
             }
 
             .experience-section {
@@ -283,7 +298,7 @@
             }
 
             .experience-card {
-                padding: 22px 18px;
+                padding: 24px 20px;
             }
 
             .experience-top {
@@ -293,6 +308,86 @@
 
             .experience-card h2 {
                 font-size: 19px;
+            }
+
+            .section-heading p {
+                font-size: 14px;
+            }
+        }
+
+        /* Small Mobile */
+
+        @media (max-width: 420px) {
+            .navbar {
+                padding: 14px 12px;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                gap: 9px 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .experience-section {
+                padding: 40px 0 55px;
+            }
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+            .section-heading h1 {
+                font-size: 29px;
+            }
+
+            .experience-card {
+                padding: 20px 17px;
+            }
+
+            .experience-card h2 {
+                font-size: 18px;
+            }
+
+            .experience-card li {
+                font-size: 13px;
+                gap: 8px;
+            }
+
+            .footer-container {
+                width: 92%;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 8px 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .section-heading h1 {
+                font-size: 26px;
+            }
+
+            .experience-card {
+                padding: 18px 15px;
             }
         }
     </style>
@@ -353,7 +448,6 @@
                                     Freelance QA Tester
                                 </p>
                             </div>
-
                         </div>
 
                         <h3>Responsibilities & Testing Activities</h3>
@@ -429,8 +523,6 @@
                                     Freelance QA Tester
                                 </p>
                             </div>
-
-                           
                         </div>
 
                         <h3>Responsibilities & Testing Activities</h3>
@@ -486,8 +578,7 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
 
@@ -501,7 +592,7 @@
             <div class="footer-divider"></div>
 
             <span class="copyright">
-                &copy;  QA Portfolio. All rights reserved.
+                &copy; QA Portfolio. All rights reserved.
             </span>
 
         </div>
