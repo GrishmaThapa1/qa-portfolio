@@ -1,16 +1,14 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="My freelance QA testing experience with Crop Management System and Skill Sharing System.">
-
     <title>Experience | Software QA Tester</title>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
         * {
@@ -31,20 +29,23 @@
             overflow-x: hidden;
         }
 
+        body.menu-open {
+            overflow: hidden;
+        }
+
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         /* Header */
-
         .site-header {
-            background: #fff;
-            border-bottom: 1px solid #e5eaf2;
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #e5eaf2;
         }
 
         .navbar {
@@ -53,21 +54,22 @@
             margin: auto;
             padding: 16px 24px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 25px;
         }
 
         .logo {
             display: flex;
             gap: 6px;
+            flex-shrink: 0;
             font-size: 23px;
             font-weight: 800;
             white-space: nowrap;
-            flex-shrink: 0;
         }
 
-        .logo-highlight {
+        .logo-highlight,
+        .mobile-menu-title span {
             color: #2477e8;
         }
 
@@ -97,12 +99,110 @@
         }
 
         .nav-links a.active {
-            border-bottom: 2px solid #2477e8;
             padding-bottom: 6px;
+            border-bottom: 2px solid #2477e8;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e1e8f2;
+            border-radius: 9px;
+            background: #fff;
+            color: #172b4d;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            background: rgba(15, 30, 55, 0.45);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .menu-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            width: min(320px, 85%);
+            height: 100vh;
+            height: 100dvh;
+            padding: 25px 22px;
+            background: #fff;
+            box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #e5eaf2;
+        }
+
+        .mobile-menu-title {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .menu-close {
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 8px;
+            background: #f1f5fb;
+            color: #172b4d;
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            padding-top: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 8px;
+            color: #53627a;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: #edf4ff;
+            color: #2477e8;
         }
 
         /* Experience Section */
-
         .experience-section {
             padding: 75px 0 90px;
         }
@@ -113,26 +213,26 @@
         }
 
         .section-heading {
-            text-align: center;
             max-width: 680px;
             margin: 0 auto 45px;
+            text-align: center;
         }
 
         .section-label {
             display: inline-block;
+            padding: 6px 13px;
+            border-radius: 30px;
             background: #e7f0ff;
             color: #2477e8;
-            border-radius: 30px;
-            padding: 6px 13px;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
         .section-heading h1 {
+            margin: 17px 0 12px;
             font-size: clamp(32px, 4vw, 42px);
             line-height: 1.25;
-            margin: 17px 0 12px;
         }
 
         .section-heading h1 span {
@@ -150,13 +250,12 @@
         }
 
         .experience-card {
-            background: #ffffff;
+            min-width: 0;
+            padding: 30px;
             border: 1px solid #e1e8f2;
             border-radius: 14px;
-            padding: 30px;
-            min-width: 0;
-            transition: border-color 0.3s ease,
-                        box-shadow 0.3s ease;
+            background: #fff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .experience-card:hover {
@@ -166,28 +265,28 @@
 
         .experience-top {
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
+            justify-content: space-between;
             gap: 20px;
             margin-bottom: 20px;
         }
 
         .role-icon {
+            display: grid;
             width: 50px;
             height: 50px;
-            display: grid;
+            margin-bottom: 15px;
             place-items: center;
+            border-radius: 11px;
             background: #edf4ff;
             color: #2477e8;
-            border-radius: 11px;
             font-size: 21px;
-            margin-bottom: 15px;
         }
 
         .experience-card h2 {
+            margin-bottom: 5px;
             font-size: 21px;
             line-height: 1.4;
-            margin-bottom: 5px;
         }
 
         .job-title {
@@ -197,8 +296,8 @@
         }
 
         .experience-card h3 {
-            font-size: 14px;
             margin-bottom: 12px;
+            font-size: 14px;
         }
 
         .experience-card ul {
@@ -209,16 +308,16 @@
             display: flex;
             align-items: flex-start;
             gap: 10px;
+            margin-bottom: 11px;
             color: #5c6c84;
             font-size: 14px;
-            margin-bottom: 11px;
         }
 
         .experience-card li i {
-            color: #159b74;
-            margin-top: 6px;
-            font-size: 12px;
             flex-shrink: 0;
+            margin-top: 6px;
+            color: #159b74;
+            font-size: 12px;
         }
 
         .experience-card li:last-child {
@@ -226,12 +325,11 @@
         }
 
         /* Footer */
-
         .site-footer {
             padding: 35px 0 24px;
-            text-align: center;
             background: #14243e;
             color: #fff;
+            text-align: center;
         }
 
         .footer-container {
@@ -245,8 +343,8 @@
         }
 
         .footer-logo i {
-            color: #66a5ff;
             margin-right: 6px;
+            color: #66a5ff;
         }
 
         .site-footer p {
@@ -257,8 +355,8 @@
 
         .footer-divider {
             height: 1px;
-            background: rgba(255,255,255,.15);
             margin: 23px 0 17px;
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .copyright {
@@ -266,33 +364,25 @@
             font-size: 12px;
         }
 
-        /* Tablet and Smaller Laptop */
-
+        /* Tablet and Mobile */
         @media (max-width: 1050px) {
             .navbar {
-                flex-direction: column;
-                gap: 14px;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 15px;
                 padding: 16px 20px;
             }
 
             .nav-links {
-                justify-content: center;
-                gap: 12px 20px;
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
             }
         }
 
-        /* Mobile */
-
         @media (max-width: 700px) {
-            .nav-links {
-                justify-content: center;
-                gap: 10px 15px;
-            }
-
-            .nav-links a {
-                font-size: 13px;
-            }
-
             .experience-section {
                 padding: 50px 0 65px;
             }
@@ -316,26 +406,18 @@
         }
 
         /* Small Mobile */
-
         @media (max-width: 420px) {
             .navbar {
-                padding: 14px 12px;
                 gap: 12px;
+                padding: 14px 12px;
             }
 
             .logo {
                 font-size: 20px;
             }
 
-            .nav-links {
-                gap: 9px 12px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .container {
+            .container,
+            .footer-container {
                 width: 92%;
             }
 
@@ -360,26 +442,14 @@
             }
 
             .experience-card li {
-                font-size: 13px;
                 gap: 8px;
-            }
-
-            .footer-container {
-                width: 92%;
+                font-size: 13px;
             }
         }
 
         @media (max-width: 360px) {
             .logo {
                 font-size: 18px;
-            }
-
-            .nav-links {
-                gap: 8px 10px;
-            }
-
-            .nav-links a {
-                font-size: 11px;
             }
 
             .section-heading h1 {
@@ -395,7 +465,6 @@
 
 <body>
 
-    <!-- Header -->
     <header class="site-header">
         <nav class="navbar">
             <a href="index.html" class="logo">
@@ -408,23 +477,64 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="myproject.html">Projects</a></li>
-                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="experience.html" class="active" aria-current="page">Experience</a></li>
                 <li><a href="documentation.html">Documentation</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
     </header>
 
-    <!-- Experience -->
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+    <aside
+        class="mobile-menu"
+        id="mobile-menu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-title">
+                Software QA <span>Tester</span>
+            </div>
+
+            <button
+                class="menu-close"
+                id="menu-close"
+                type="button"
+                aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="myproject.html">Projects</a></li>
+            <li><a href="experience.html" class="active" aria-current="page">Experience</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
     <main>
         <section class="experience-section">
             <div class="container">
 
                 <div class="section-heading">
                     <span class="section-label">MY EXPERIENCE</span>
-
                     <h1>QA Testing <span>Experience</span></h1>
-
                     <p>
                         Practical experience in testing web applications,
                         validating user workflows, identifying defects,
@@ -434,7 +544,6 @@
 
                 <div class="experience-list">
 
-                    <!-- Experience 1 -->
                     <article class="experience-card">
                         <div class="experience-top">
                             <div>
@@ -443,10 +552,7 @@
                                 </div>
 
                                 <h2>Crop Management System</h2>
-
-                                <p class="job-title">
-                                    Freelance QA Tester
-                                </p>
+                                <p class="job-title">Freelance QA Tester</p>
                             </div>
                         </div>
 
@@ -455,61 +561,31 @@
                         <ul>
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Performed functional and system testing
-                                    of a web-based Crop Management System.
-                                </span>
+                                <span>Performed functional and system testing of a web-based Crop Management System.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Designed and executed test cases for User
-                                    Registration, User Login, Admin Login,
-                                    Crop Management, Expense Management,
-                                    and Sales Management.
-                                </span>
+                                <span>Designed and executed test cases for User Registration, User Login, Admin Login, Crop Management, Expense Management, and Sales Management.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Conducted positive and negative testing
-                                    using valid, invalid, empty, and
-                                    mismatched inputs.
-                                </span>
+                                <span>Conducted positive and negative testing using valid, invalid, empty, and mismatched inputs.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Tested CRUD operations for crops, expenses,
-                                    and sales, including adding, editing,
-                                    and deleting records.
-                                </span>
+                                <span>Tested CRUD operations for crops, expenses, and sales, including adding, editing, and deleting records.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Verified validation messages,
-                                    authentication, navigation, user workflows,
-                                    and admin functions including blocking
-                                    and unblocking user accounts.
-                                </span>
+                                <span>Verified validation messages, authentication, navigation, user workflows, and admin functions including blocking and unblocking user accounts.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Compared expected and actual results
-                                    and documented test outcomes and bugs.
-                                </span>
+                                <span>Compared expected and actual results and documented test outcomes and bugs.</span>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Experience 2 -->
                     <article class="experience-card">
                         <div class="experience-top">
                             <div>
@@ -518,10 +594,7 @@
                                 </div>
 
                                 <h2>Skill Sharing System</h2>
-
-                                <p class="job-title">
-                                    Freelance QA Tester
-                                </p>
+                                <p class="job-title">Freelance QA Tester</p>
                             </div>
                         </div>
 
@@ -530,45 +603,23 @@
                         <ul>
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Designed and executed test cases for
-                                    Learner, Teacher, and Admin workflows.
-                                </span>
+                                <span>Designed and executed test cases for Learner, Teacher, and Admin workflows.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Performed functional, validation,
-                                    negative, authorization, session,
-                                    and end-to-end testing.
-                                </span>
+                                <span>Performed functional, validation, negative, authorization, session, and end-to-end testing.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Tested role-based access control,
-                                    including unauthorized dashboard access
-                                    and URL or form manipulation attempts.
-                                </span>
+                                <span>Tested role-based access control, including unauthorized dashboard access and URL or form manipulation attempts.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Validated CRUD operations, file upload
-                                    restrictions, and certificate generation
-                                    and revocation.
-                                </span>
+                                <span>Validated CRUD operations, file upload restrictions, and certificate generation and revocation.</span>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-check"></i>
-                                <span>
-                                    Checked personalized data visibility
-                                    and session handling.
-                                </span>
+                                <span>Checked personalized data visibility and session handling.</span>
                             </li>
                         </ul>
                     </article>
@@ -578,25 +629,70 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
-
             <a href="experience.html" class="footer-logo">
                 <i class="fa-solid fa-shield-halved"></i>
                 QA Portfolio
             </a>
 
             <p>Ensuring quality, one test at a time.</p>
-
             <div class="footer-divider"></div>
 
             <span class="copyright">
                 &copy; QA Portfolio. All rights reserved.
             </span>
-
         </div>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuOverlay = document.getElementById("menu-overlay");
+        const menuClose = document.getElementById("menu-close");
+        const mobileLinks = document.querySelectorAll(".mobile-nav-links a");
+
+        function openMenu() {
+            mobileMenu.classList.add("open");
+            menuOverlay.classList.add("show");
+            document.body.classList.add("menu-open");
+
+            mobileMenu.removeAttribute("inert");
+            mobileMenu.setAttribute("aria-hidden", "false");
+            menuOverlay.setAttribute("aria-hidden", "false");
+            menuToggle.setAttribute("aria-expanded", "true");
+
+            menuClose.focus();
+        }
+
+        function closeMenu(returnFocus = true) {
+            mobileMenu.classList.remove("open");
+            menuOverlay.classList.remove("show");
+            document.body.classList.remove("menu-open");
+
+            mobileMenu.setAttribute("inert", "");
+            mobileMenu.setAttribute("aria-hidden", "true");
+            menuOverlay.setAttribute("aria-hidden", "true");
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            if (returnFocus) menuToggle.focus();
+        }
+
+        menuToggle.addEventListener("click", openMenu);
+        menuClose.addEventListener("click", () => closeMenu());
+        menuOverlay.addEventListener("click", () => closeMenu());
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && mobileMenu.classList.contains("open")) {
+                closeMenu();
+            }
+        });
+
+        mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => closeMenu(false));
+        });
+    </script>
+
 </body>
 </html>
+
