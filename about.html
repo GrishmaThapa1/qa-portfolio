@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +30,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         body {
@@ -36,6 +38,7 @@
             background: #fff;
             color: var(--navy);
             line-height: 1.7;
+            overflow-x: hidden; /* Keep the page within the screen */
         }
 
         a {
@@ -392,6 +395,7 @@
         }
 
         /* CENTERED SECTION HEADING */
+
         .section-heading {
             margin-bottom: 29px;
             text-align: center;
@@ -480,9 +484,17 @@
             color: #b7d3ff;
         }
 
-        .testing-card .card-number { color: #9bdccb; }
-        .problem-card .card-number { color: #f2d39a; }
-        .interest-card .card-number { color: #d2b9ff; }
+        .testing-card .card-number {
+            color: #9bdccb;
+        }
+
+        .problem-card .card-number {
+            color: #f2d39a;
+        }
+
+        .interest-card .card-number {
+            color: #d2b9ff;
+        }
 
         .about-card h3 {
             font-size: 17px;
@@ -635,9 +647,17 @@
             color: var(--blue);
         }
 
-        .testing-card .card-footer i { color: var(--green); }
-        .problem-card .card-footer i { color: #b77b11; }
-        .interest-card .card-footer i { color: #8254d6; }
+        .testing-card .card-footer i {
+            color: var(--green);
+        }
+
+        .problem-card .card-footer i {
+            color: #b77b11;
+        }
+
+        .interest-card .card-footer i {
+            color: #8254d6;
+        }
 
         /* CLOSING SECTION */
 
@@ -669,50 +689,52 @@
 
         /* FOOTER */
 
-.site-footer {
-    background: #14243e;
-    color: #ffffff;
-    padding: 38px 0 25px;
-    text-align: center;
-}
+        .site-footer {
+            background: #14243e;
+            color: #ffffff;
+            padding: 38px 0 25px;
+            text-align: center;
+        }
 
-.footer-container {
-    width: min(1120px, 90%);
-    margin: auto;
-}
+        .footer-container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
 
-.footer-logo {
-    display: inline-block;
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
+        .footer-logo {
+            display: inline-block;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
 
-.footer-logo i {
-    color: #66a5ff;
-    margin-right: 7px;
-}
+        .footer-logo i {
+            color: #66a5ff;
+            margin-right: 7px;
+        }
 
-.site-footer p {
-    color: #c1cde0;
-    font-size: 14px;
-}
+        .site-footer p {
+            color: #c1cde0;
+            font-size: 14px;
+        }
 
-.footer-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.14);
-    margin: 25px 0 18px;
-}
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.14);
+            margin: 25px 0 18px;
+        }
 
-.copyright {
-    color: #aebbd0;
-    font-size: 12px;
-}
+        .copyright {
+            color: #aebbd0;
+            font-size: 12px;
+        }
+
         /* TABLET */
 
         @media (max-width: 1050px) {
             .navbar {
+                width: 94%;
                 flex-direction: column;
                 justify-content: center;
                 padding: 15px 0;
@@ -720,6 +742,8 @@
             }
 
             .nav-links {
+                width: 100%;
+                display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 9px 17px;
@@ -757,6 +781,7 @@
         @media (max-width: 700px) {
             .navbar {
                 width: 94%;
+                gap: 8px;
             }
 
             .logo {
@@ -764,11 +789,13 @@
             }
 
             .nav-links {
-                gap: 7px 13px;
+                gap: 7px 12px;
+                padding: 0 4px;
             }
 
             .nav-links a {
                 font-size: 12px;
+                padding: 5px 0;
             }
 
             .about-hero {
@@ -892,7 +919,21 @@
             }
         }
 
+        /* SMALL MOBILE */
+
         @media (max-width: 420px) {
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                gap: 6px 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
             .hero-copy h1 {
                 font-size: 31px;
             }
@@ -945,9 +986,9 @@
                     </h1>
 
                     <p>
-                        I am an aspiring Quality Assurance professional interested in software testing, defect identification, 
-                        and creating reliable digital experiences. 
-                        I enjoy exploring how applications work, identifying where they can fail, 
+                        I am an aspiring Quality Assurance professional interested in software testing, defect identification,
+                        and creating reliable digital experiences.
+                        I enjoy exploring how applications work, identifying where they can fail,
                         checking their functionality, and learning how to improve software quality.
                     </p>
 
@@ -977,7 +1018,6 @@
                             Aspiring QA Professional
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -1031,8 +1071,8 @@
                         </p>
 
                         <p>
-                           I value attention to detail, logical thinking, and continuous learning. 
-                           My goal is to strengthen my skills in both manual and automation testing.
+                            I value attention to detail, logical thinking, and continuous learning.
+                            My goal is to strengthen my skills in both manual and automation testing.
                         </p>
 
                         <div class="journey-highlights">
@@ -1284,8 +1324,7 @@
 
     </main>
 
-     <!-- FOOTER -->
-
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-container">
 
@@ -1299,7 +1338,7 @@
             <div class="footer-divider"></div>
 
             <span class="copyright">
-                &copy;  QA Portfolio. All rights reserved.
+                &copy; QA Portfolio. All rights reserved.
             </span>
 
         </div>
