@@ -7,8 +7,7 @@
     <meta name="description" content="Explore my QA testing documentation, including manual testing, test cases, automation scripts, and project reports.">
     <title>QA Testing Documentation | Software QA Tester</title>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         * {
@@ -19,6 +18,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -29,25 +29,29 @@
             overflow-x: hidden;
         }
 
+        body.menu-open {
+            overflow: hidden;
+        }
+
         a {
             text-decoration: none;
         }
 
-        /* Navbar */
+        /* Navigation */
 
         .site-header {
-            background: #ffffff;
-            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
         }
 
         .navbar {
-            width: min(1200px, 100%);
+            width: min(1200px, 94%);
+            min-height: 76px;
             margin: auto;
-            padding: 18px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -55,14 +59,16 @@
         }
 
         .logo {
+            flex-shrink: 0;
             color: #172554;
             font-size: 22px;
             font-weight: 800;
             white-space: nowrap;
-            flex-shrink: 0;
         }
 
-        .logo-highlight {
+        .logo-highlight,
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #2563eb;
         }
 
@@ -82,15 +88,143 @@
             color: #334155;
             font-size: 14px;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:focus-visible,
+        .menu-toggle:focus-visible,
+        .menu-close:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 4px;
+        }
+
+        .menu-toggle {
+            display: none;
+            padding: 8px;
+            border: 0;
+            background: transparent;
+            color: #172554;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        /* Mobile menu */
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            background: rgba(15, 23, 42, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .menu-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1002;
+            width: min(320px, 85%);
+            height: 100vh;
+            height: 100dvh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            background: #fff;
+            box-shadow: -5px 0 25px rgba(15, 23, 42, 0.12);
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: transform 0.35s, visibility 0.35s;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+            visibility: visible;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mobile-menu-title {
+            color: #172554;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .mobile-menu-title span {
             color: #2563eb;
         }
 
-        /* Main Section */
+        .menu-close {
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 8px;
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 25px;
+            list-style: none;
+        }
+
+        .mobile-nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 15px;
+            border-radius: 8px;
+            color: #334155;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .mobile-nav-links a i {
+            width: 20px;
+            color: #64748b;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .mobile-nav-links a.active i {
+            color: #2563eb;
+        }
+
+        .mobile-menu-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Documentation section */
 
         .documentation-section {
             width: min(1200px, 100%);
@@ -99,28 +233,28 @@
         }
 
         .section-heading {
-            text-align: center;
             max-width: 760px;
             margin: 0 auto 45px;
+            text-align: center;
         }
 
         .section-label {
             display: inline-block;
-            color: #2563eb;
-            background: #dbeafe;
+            margin-bottom: 18px;
             padding: 7px 16px;
             border-radius: 30px;
+            background: #dbeafe;
+            color: #2563eb;
             font-size: 12px;
             font-weight: 800;
             letter-spacing: 1.5px;
-            margin-bottom: 18px;
         }
 
         .section-heading h1 {
+            margin-bottom: 18px;
             color: #172554;
             font-size: 38px;
             line-height: 1.25;
-            margin-bottom: 18px;
         }
 
         .section-heading p {
@@ -128,7 +262,7 @@
             font-size: 16px;
         }
 
-        /* Documentation Cards */
+        /* Documentation cards */
 
         .documentation-grid {
             display: grid;
@@ -137,17 +271,15 @@
         }
 
         .documentation-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            min-width: 0;
             padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            min-width: 0;
-            transition: transform 0.3s ease,
-                        box-shadow 0.3s ease,
-                        border-color 0.3s ease;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            background: #fff;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
         .documentation-card:hover {
@@ -159,27 +291,26 @@
         .card-icon {
             width: 58px;
             height: 58px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 22px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 14px;
             background: #eff6ff;
             color: #2563eb;
-            border-radius: 14px;
             font-size: 25px;
-            margin-bottom: 22px;
-            flex-shrink: 0;
         }
 
         .documentation-card h2 {
+            margin-bottom: 12px;
             color: #172554;
             font-size: 21px;
-            margin-bottom: 12px;
         }
 
         .documentation-card p {
+            margin-bottom: 20px;
             color: #64748b;
             font-size: 14px;
-            margin-bottom: 20px;
         }
 
         .project-details {
@@ -190,72 +321,68 @@
         }
 
         .project-details span {
-            display: inline-block;
-            background: #f1f5f9;
-            color: #475569;
             padding: 5px 10px;
             border-radius: 6px;
+            background: #f1f5f9;
+            color: #475569;
             font-size: 12px;
             font-weight: 600;
         }
 
-        /* Buttons */
+        /* Documentation buttons */
 
         .card-buttons {
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            gap: 10px;
             width: 100%;
             margin-top: auto;
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
         }
 
         .documentation-button {
-            display: inline-flex;
-            flex: 1 1 0;
             min-width: 0;
+            flex: 1 1 0;
+            padding: 12px 10px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 7px;
-            background: #2563eb;
-            color: #ffffff;
-            padding: 12px 10px;
             border: 1px solid #2563eb;
             border-radius: 8px;
+            background: #2563eb;
+            color: #fff;
             font-size: 13px;
             font-weight: 700;
-            text-align: center;
             line-height: 1.4;
-            transition: background 0.3s ease,
-                        transform 0.2s ease,
-                        box-shadow 0.3s ease;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
         }
 
         .documentation-button:hover {
-            background: #1d4ed8;
-            border-color: #1d4ed8;
             transform: translateY(-2px);
+            border-color: #1d4ed8;
+            background: #1d4ed8;
             box-shadow: 0 5px 12px rgba(37, 99, 235, 0.16);
         }
 
         .automation-button {
+            border-color: #bfdbfe;
             background: #eff6ff;
             color: #1d4ed8;
-            border-color: #bfdbfe;
         }
 
         .automation-button:hover {
+            border-color: #93c5fd;
             background: #dbeafe;
             color: #1e40af;
-            border-color: #93c5fd;
         }
 
         /* Footer */
 
         .site-footer {
-            background: #14243e;
-            color: #ffffff;
             padding: 38px 0 25px;
+            background: #14243e;
+            color: #fff;
             text-align: center;
         }
 
@@ -266,15 +393,15 @@
 
         .footer-logo {
             display: inline-block;
+            margin-bottom: 8px;
+            color: #fff;
             font-size: 19px;
             font-weight: 800;
-            margin-bottom: 8px;
-            color: #ffffff;
         }
 
         .footer-logo i {
-            color: #66a5ff;
             margin-right: 7px;
+            color: #66a5ff;
         }
 
         .site-footer p {
@@ -284,8 +411,8 @@
 
         .footer-divider {
             height: 1px;
-            background: rgba(255, 255, 255, 0.14);
             margin: 25px 0 18px;
+            background: rgba(255, 255, 255, 0.14);
         }
 
         .copyright {
@@ -293,27 +420,26 @@
             font-size: 12px;
         }
 
-        /* Tablet and Smaller Laptop */
+        /* Responsive layout */
 
         @media (max-width: 1050px) {
             .navbar {
-                flex-direction: column;
-                gap: 14px;
-                padding: 16px 20px;
+                min-height: 70px;
+                padding: 10px 0;
             }
 
             .nav-links {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px 20px;
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             .documentation-section {
                 padding-top: 55px;
             }
         }
-
-        /* Mobile */
 
         @media (max-width: 700px) {
             .documentation-grid {
@@ -345,39 +471,20 @@
                 font-size: 20px;
             }
 
-            .nav-links {
-                gap: 10px 15px;
-            }
-
-            .nav-links a {
-                font-size: 13px;
-            }
-
             .card-buttons {
                 gap: 8px;
             }
 
             .documentation-button {
                 padding: 11px 7px;
-                font-size: 12px;
                 gap: 5px;
+                font-size: 12px;
             }
         }
 
-        /* Small Mobile */
-
         @media (max-width: 420px) {
-            .navbar {
-                padding: 14px 12px;
-                gap: 12px;
-            }
-
-            .nav-links {
-                gap: 9px 12px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
+            .logo {
+                font-size: 19px;
             }
 
             .documentation-section {
@@ -411,20 +518,21 @@
                 font-size: 18px;
             }
 
-            .nav-links {
-                gap: 8px 10px;
-            }
-
-            .nav-links a {
-                font-size: 11px;
-            }
-
             .section-heading h1 {
                 font-size: 25px;
             }
 
             .documentation-card {
                 padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -434,7 +542,7 @@
 
     <!-- Navigation -->
     <header class="site-header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <a href="index.html" class="logo">
                 <span>Software QA</span>
                 <span class="logo-highlight">Tester</span>
@@ -446,21 +554,52 @@
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="myproject.html">Projects</a></li>
                 <li><a href="experience.html">Experience</a></li>
-                <li><a href="documentation.html" class="active">Documentation</a></li>
+                <li><a href="documentation.html" class="active" aria-current="page">Documentation</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+
+            <button class="menu-toggle" id="menu-toggle" type="button"
+                    aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="mobile-menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
         </nav>
     </header>
 
-    <!-- Documentation Section -->
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile side menu -->
+    <aside class="mobile-menu" id="mobile-menu"
+           aria-label="Mobile navigation" aria-hidden="true" inert>
+
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-title">Software QA <span>Tester</span></div>
+
+            <button class="menu-close" id="menu-close" type="button"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+            <li><a href="skills.html"><i class="fa-solid fa-laptop-code"></i> Skills</a></li>
+            <li><a href="myproject.html"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+            <li><a href="experience.html"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+            <li><a href="documentation.html" class="active" aria-current="page"><i class="fa-solid fa-file-lines"></i> Documentation</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu-footer">Ensuring quality, one test at a time.</div>
+    </aside>
+
+    <!-- Documentation content -->
     <main>
         <section class="documentation-section">
-
             <div class="section-heading">
                 <span class="section-label">MY QA WORK</span>
-
                 <h1>QA Testing Documentation</h1>
-
                 <p>
                     Explore my software testing documentation, including
                     test cases, test scenarios, test execution results,
@@ -470,32 +609,23 @@
 
             <div class="documentation-grid">
 
-                <!-- Complaint Management System -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
                     <h2>Complaint Management System</h2>
-
                     <p>
                         Manual testing documentation covering user
                         registration, login, complaint submission,
                         profile management, and admin workflows.
                     </p>
-
                     <div class="project-details">
                         <span>Manual Testing</span>
                         <span>Test Cases</span>
                         <span>Validation</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1Cf8u2bxGqQT13J5-hvnXWJhVhTRT_7Er?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1Cf8u2bxGqQT13J5-hvnXWJhVhTRT_7Er?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -503,32 +633,23 @@
                     </div>
                 </article>
 
-                <!-- Crop Management System -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
                     <h2>Crop Management System</h2>
-
                     <p>
                         Testing documentation for registration, login,
                         crop management, expenses, sales, CRUD operations,
                         and input validation.
                     </p>
-
                     <div class="project-details">
                         <span>Manual Testing</span>
                         <span>CRUD Testing</span>
                         <span>Functional Testing</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1v-m83uXxWV0g3DC1YO1aCNrqz4PN0Z_f?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1v-m83uXxWV0g3DC1YO1aCNrqz4PN0Z_f?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -536,32 +657,23 @@
                     </div>
                 </article>
 
-                <!-- Skill Sharing System -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-share-nodes"></i></div>
                     <h2>Skill Sharing System</h2>
-
                     <p>
                         Testing documentation for registration, login,
                         skill sharing and management, user interactions,
                         and input validation.
                     </p>
-
                     <div class="project-details">
                         <span>Manual Testing</span>
                         <span>Test Cases</span>
                         <span>Functional Testing</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1p0UQF4xBg4h4pfpDuvHQ27BcLzq96I4T?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1p0UQF4xBg4h4pfpDuvHQ27BcLzq96I4T?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -569,115 +681,82 @@
                     </div>
                 </article>
 
-                <!-- SauceDemo -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                     <h2>SauceDemo Testing</h2>
-
                     <p>
                         Testing documentation for login, product selection,
                         add-to-cart functionality, and checkout workflows,
                         including manual and Playwright automation testing.
                     </p>
-
                     <div class="project-details">
                         <span>Manual Testing</span>
                         <span>Playwright</span>
                         <span>JavaScript</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1bPsSM8gF26wPtlHZOevfhX3epicH1I6A?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1bPsSM8gF26wPtlHZOevfhX3epicH1I6A?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                         </a>
-
-                        <a
-                            href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Sauce-Demo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button automation-button">
+                        <a href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Sauce-Demo"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button automation-button">
                             <i class="fa-brands fa-github"></i>
                             View Automation Code
                         </a>
                     </div>
                 </article>
 
-                <!-- DemoBlaze -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-store"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-store"></i></div>
                     <h2>DemoBlaze Testing</h2>
-
                     <p>
                         Testing documentation for signup, login,
                         product selection, cart functionality,
                         and order placement using manual and
                         Playwright automation testing.
                     </p>
-
                     <div class="project-details">
                         <span>Manual Testing</span>
                         <span>Playwright</span>
                         <span>JavaScript</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1jqy9KDStGPU3HcPa9in2OxuTB_VxYTOZ?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1jqy9KDStGPU3HcPa9in2OxuTB_VxYTOZ?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                         </a>
-
-                        <a
-                            href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Demo-Blaze"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button automation-button">
+                        <a href="https://github.com/GrishmaThapa1/QA-Automation-Projects/tree/main/Demo-Blaze"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button automation-button">
                             <i class="fa-brands fa-github"></i>
                             View Automation Code
                         </a>
                     </div>
                 </article>
 
-                <!-- API Testing -->
                 <article class="documentation-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-plug"></i>
-                    </div>
-
+                    <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
                     <h2>API Testing – CRUD Operations</h2>
-
                     <p>
                         API testing practice covering GET, POST, PUT,
                         and DELETE requests, with status-code checks
                         and response validation.
                     </p>
-
                     <div class="project-details">
                         <span>API Testing</span>
                         <span>Postman</span>
                         <span>CRUD Operations</span>
                     </div>
-
                     <div class="card-buttons">
-                        <a
-                            href="https://drive.google.com/drive/folders/1OrSKz0xJcgy6z3gOqUHCaFWq_HWBGv20?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="documentation-button">
+                        <a href="https://drive.google.com/drive/folders/1OrSKz0xJcgy6z3gOqUHCaFWq_HWBGv20?usp=drive_link"
+                           target="_blank" rel="noopener noreferrer"
+                           class="documentation-button">
                             <i class="fa-solid fa-file-lines"></i>
                             View Documentation
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -692,22 +771,60 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
-
             <a href="documentation.html" class="footer-logo">
-                <i class="fa-solid fa-shield-halved"></i>
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                 QA Portfolio
             </a>
-
             <p>Ensuring quality, one test at a time.</p>
-
             <div class="footer-divider"></div>
-
-            <span class="copyright">
-                &copy; QA Portfolio. All rights reserved.
-            </span>
-
+            <span class="copyright">&copy; QA Portfolio. All rights reserved.</span>
         </div>
     </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuOverlay = document.getElementById("menu-overlay");
+        const menuClose = document.getElementById("menu-close");
+
+        function openMenu() {
+            mobileMenu.classList.add("open");
+            menuOverlay.classList.add("show");
+            mobileMenu.inert = false;
+            mobileMenu.setAttribute("aria-hidden", "false");
+            menuOverlay.setAttribute("aria-hidden", "false");
+            menuToggle.setAttribute("aria-expanded", "true");
+            document.body.classList.add("menu-open");
+            menuClose.focus();
+        }
+
+        function closeMenu(returnFocus = true) {
+            mobileMenu.classList.remove("open");
+            menuOverlay.classList.remove("show");
+            mobileMenu.inert = true;
+            mobileMenu.setAttribute("aria-hidden", "true");
+            menuOverlay.setAttribute("aria-hidden", "true");
+            menuToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
+
+            if (returnFocus) menuToggle.focus();
+        }
+
+        menuToggle.addEventListener("click", openMenu);
+        menuClose.addEventListener("click", () => closeMenu());
+        menuOverlay.addEventListener("click", () => closeMenu());
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => closeMenu(false));
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && mobileMenu.classList.contains("open")) {
+                closeMenu();
+            }
+        });
+    </script>
 
 </body>
 </html>
